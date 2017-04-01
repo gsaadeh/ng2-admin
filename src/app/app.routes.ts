@@ -98,6 +98,10 @@ export const routes: Routes = [
     component: NgaMenuTestComponent,
   },
   {
+    path: 'auth',
+    loadChildren: 'framework/auth/auth.module#NgaAuthModule',
+  },
+  {
     path: '**',
     component: NgaCardTestComponent,
   },

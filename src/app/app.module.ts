@@ -33,8 +33,8 @@ import { NgaSidebarTestComponent } from './sidebar-test/sidebar-test.component';
 import { NgaSidebarTestOneComponent } from './sidebar-test/sidebar-test-one.component';
 import { NgaSidebarTestTwoComponent } from './sidebar-test/sidebar-test-two.component';
 import { NgaSidebarTestThreeComponent } from './sidebar-test/sidebar-test-three.component';
-
 import { NgaMenuTestComponent } from './menu-test/menu-test.component';
+import { NgaAuthModule } from '../framework/auth/auth.module';
 
 import { routes } from './app.routes';
 import { menuItems } from './menu-test/menu-items';
@@ -71,6 +71,7 @@ const NGA_TEST_COMPONENTS = [
     NgaRouteTabsetModule,
     NgaSidebarModule.forRoot(),
     NgaTabsetModule,
+    NgaAuthModule.forRoot(),
   ],
   declarations: [
     ...NGA_TEST_COMPONENTS,
