@@ -34,7 +34,8 @@ import { NgaSidebarTestOneComponent } from './sidebar-test/sidebar-test-one.comp
 import { NgaSidebarTestTwoComponent } from './sidebar-test/sidebar-test-two.component';
 import { NgaSidebarTestThreeComponent } from './sidebar-test/sidebar-test-three.component';
 import { NgaMenuTestComponent } from './menu-test/menu-test.component';
-import { NgaAuthModule } from '../framework/auth/auth.module';
+import { NgaAuthModule } from '../framework/auth';
+import { NgaDummyProviderService } from '../framework/auth';
 
 import { routes } from './app.routes';
 import { menuItems } from './menu-test/menu-items';
@@ -71,7 +72,31 @@ const NGA_TEST_COMPONENTS = [
     NgaRouteTabsetModule,
     NgaSidebarModule.forRoot(),
     NgaTabsetModule,
-    NgaAuthModule.forRoot(),
+    NgaAuthModule.forRoot({
+      providers: {
+
+        dummy: {
+          service: NgaDummyProviderService,
+          config: {
+            alwaysFail: true,
+            delay: 1000,
+          },
+        },
+        //email: {
+        //  service: NgaEmailProviderService,
+        //  config: {
+        //    alwaysFail: true,
+        //    endPoint: '/api/auth',
+        //    loginEndPoint: '/api/auth/login',
+        //    registerEndPoint: '/api/auth/register',
+        //    requestPassEndPoint: '/api/auth/password/request',
+        //    resetPassEndPoint: '/api/auth/password/change',
+        //    tokenHeaderKey: 'X-Custom-Token'
+        //  },
+        //},
+
+      },
+    }),
   ],
   declarations: [
     ...NGA_TEST_COMPONENTS,
