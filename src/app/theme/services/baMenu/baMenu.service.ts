@@ -49,7 +49,7 @@ export class BaMenuService {
 
       if (item.children && item.children.length > 0) {
         item.children = this.selectMenuItem(item.children);
-        item.childSelected = _.find(item.children, 'selected') != undefined;
+        item.childSelected = _.find(item.children, 'selected') !== undefined;
       }
 
       items.push(item);
